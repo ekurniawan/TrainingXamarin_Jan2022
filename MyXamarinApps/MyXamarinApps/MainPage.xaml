@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyXamarinApps.MainPage" Title="Main Page">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="ic_add.png" Order="Primary" />
+        <ToolbarItem x:Name="menuCustom" Text="Custom List" Order="Secondary"
+                     Clicked="menuCustom_Clicked"/>
+        <ToolbarItem x:Name="menuImage" Text="Image List" Order="Secondary"
+                     Clicked="menuImage_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Orientation="Vertical">
+        <Entry x:Name="entryName" Placeholder="Masukan nama anda" />
+        <Label x:Name="lblNama" Text="Hello Xamarin !" FontSize="Large" />
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="btnSubmit" Text="Submit" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Button x:Name="btnSimpleList" Text="Simple List" Clicked="btnSimpleList_Clicked" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>

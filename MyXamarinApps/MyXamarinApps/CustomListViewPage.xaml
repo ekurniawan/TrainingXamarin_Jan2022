@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyXamarinApps.CustomListViewPage" Title="Custom List">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="lvCourse" HasUnevenRows="True" ItemTapped="lvCourse_ItemTapped">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="60" />
+                        </Grid.ColumnDefinitions>
+                        <Label FontAttributes="Bold" Text="Title" Grid.Column="0" Grid.Row="0"  VerticalOptions="Center" />
+                        <Label FontAttributes="Bold" Text="Desc" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center" />
+                        <Label FontAttributes="Bold" Text="Price" Grid.Column="2" Grid.Row="0"  VerticalOptions="Center" />
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="60" />
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Title}" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+                                <Label Text="{Binding Description}" Grid.Row="0" Grid.Column="1"  VerticalOptions="Center" />
+                                <Label Text="{Binding Price,StringFormat='{0:N0}$'}"
+                                       Grid.Row="0" Grid.Column="2"  VerticalOptions="Center" />
+                                <Image Source="{Binding Pic}" WidthRequest="60" Grid.Row="0"
+                                       Grid.Column="3"  VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="btnBack" Text="Back" Clicked="btnBack_Clicked" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
