@@ -29,5 +29,12 @@ namespace MyXamarinApps
         {
             await Navigation.PushAsync(new ListViewWithImagePage());
         }
+
+        private async void btnActionSheet_Clicked(object sender, EventArgs e)
+        {
+            var result = await DisplayActionSheet("Dikirimkan ke?", "Cancel", "Delete",
+                "Twitter", "Instagram", "TikTok", "Facebook");
+            await DisplayAlert("Info", $"Anda memilih {result}", "OK");
+        }
     }
 }

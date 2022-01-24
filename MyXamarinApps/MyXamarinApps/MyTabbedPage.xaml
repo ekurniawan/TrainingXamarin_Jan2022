@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyXamarinApps.MyTabbedPage" Title="Tab Page"
+             xmlns:local="clr-namespace:MyXamarinApps" 
+            NavigationPage.HasNavigationBar="False">
+  <!--Pages can be added as references or inline-->
+    <TabbedPage.Children>
+        <local:MainPage IconImageSource="ic_add.png" Title="Main Page" />
+        <local:CustomListViewPage IconImageSource="ic_add.png" Title="Custom List" />
+        <local:ListViewWithImagePage IconImageSource="ic_add.png" Title="Image List" />
+    </TabbedPage.Children>
+</TabbedPage>

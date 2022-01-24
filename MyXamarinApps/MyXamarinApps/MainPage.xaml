@@ -16,6 +16,7 @@
             <Button x:Name="btnSubmit" Text="Submit" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">
+            <Button x:Name="btnActionSheet" Text="Action Sheet" Clicked="btnActionSheet_Clicked" />
             <Button x:Name="btnSimpleList" Text="Simple List" Clicked="btnSimpleList_Clicked" />
         </StackLayout>
     </StackLayout>
