@@ -6,7 +6,42 @@
         <StackLayout>
             <ListView x:Name="lvMenuSide" SeparatorVisibility="None"
                       HasUnevenRows="True" ItemsSource="{Binding MenuItems}">
-                
+                <ListView.Header>
+                    <Grid BackgroundColor="White">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="10" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="10" />
+                        </Grid.RowDefinitions>
+                        <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal">
+                            <Image Source="monyet1.png" WidthRequest="80" HeightRequest="80"
+                                   Aspect="Fill" HorizontalOptions="Start" />
+                            <Label Text="Xamarin App" FontSize="Large" VerticalOptions="Center"
+                                   FontAttributes="Bold" />
+                        </StackLayout>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand"
+                                         BackgroundColor="#2196F3">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding ImageIcon}" WidthRequest="35"/>
+                                    <Label VerticalOptions="FillAndExpand" TextColor="White"
+                                           FontAttributes="Bold" VerticalTextAlignment="Center"
+                                           Text="{Binding Title}" FontSize="Medium"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
     </ContentPage.Content>
