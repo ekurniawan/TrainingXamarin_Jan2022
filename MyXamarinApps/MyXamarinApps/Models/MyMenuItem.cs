@@ -8,7 +8,7 @@ namespace MyXamarinApps.Models
     {
         public MyMenuItem()
         {
-
+            TargetType = typeof(MyMenuItem);
         }
 
         public int Id { get; set; }
