@@ -10,7 +10,7 @@ namespace MyXamarinApps
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MyTabbedPage());
+            MainPage = new NavigationPage(new MyMasterPage());
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyXamarinApps.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,20 @@ namespace MyXamarinApps
         public MyMasterPage()
         {
             InitializeComponent();
+            SlideMenu.ListView.ItemSelected += ListView_ItemSelected;
+        }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var item = e.SelectedItem as MyMenuItem;
+            if (item == null)
+                return;
+
+            var page = (Page)Activator.CreateInstance(item.TargetType);
+            page.Title = item.Title;
+            Detail = new NavigationPage(page);
+            IsPresented = false;
+            SlideMenu.ListView.SelectedItem = null;
         }
     }
 }
