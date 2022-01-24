@@ -19,26 +19,22 @@
                 </Grid.RowDefinitions>
                 <Label Text="First Name :" Grid.Column="0" Grid.Row="0" FontSize="Medium"
                    HorizontalOptions="End" VerticalOptions="Center" />
-                <Entry Placeholder="first name" Grid.Column="1" Grid.Row="0" />
+                <Entry x:Name="entryFirstName" Placeholder="first name" Grid.Column="1" Grid.Row="0" />
                 <Label Text="Last Name :" Grid.Column="0" Grid.Row="1" FontSize="Medium"
                    HorizontalOptions="End" VerticalOptions="Center" />
-                <Entry Placeholder="last name" Grid.Column="1" Grid.Row="1" />
+                <Entry x:Name="entryLastName" Placeholder="last name" Grid.Column="1" Grid.Row="1" />
                 <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
                     <Button Text="Submit" />
                     <Button Text="Cancel" />
+                    <Button x:Name="btnClearPreference" Text="Clear Preference" 
+                            Clicked="btnClearPreference_Clicked" />
                 </StackLayout>
                 <Image x:Name="imgLogo" WidthRequest="200" Grid.Row="3" Grid.Column="1" />
                 <StackLayout Grid.Row="4" Grid.Column="1">
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
-                    <Button  Text="Submit" />
+                    <Button x:Name="btnGetUsername" Text="Get Username" 
+                            Clicked="btnGetUsername_Clicked" />
+                    <Button x:Name="btnGetCourse" Text="Get Course" Clicked="btnGetCourse_Clicked"/>
+                    <Button x:Name="btnGetPreference" Text="Get Preference" Clicked="btnGetPreference_Clicked" />
                 </StackLayout>
             </Grid>
         </ScrollView>

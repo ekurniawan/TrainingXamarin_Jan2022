@@ -14,10 +14,13 @@
         <Label x:Name="lblNama" Text="Hello Xamarin !" FontSize="Large" />
         <StackLayout Orientation="Horizontal">
             <Button x:Name="btnSubmit" Text="Submit" />
+            <Button x:Name="btnKirimNilai" Text="Kirim" Clicked="btnKirimNilai_Clicked" />
+            <Button x:Name="btnSetUsername" Text="Set Username" Clicked="btnSetUsername_Clicked" />
         </StackLayout>
         <StackLayout Orientation="Horizontal">
             <Button x:Name="btnActionSheet" Text="Action Sheet" Clicked="btnActionSheet_Clicked" />
             <Button x:Name="btnSimpleList" Text="Simple List" Clicked="btnSimpleList_Clicked" />
+            <Button x:Name="btnSetPreference" Text="Set Preference" Clicked="btnSetPreference_Clicked" />
         </StackLayout>
     </StackLayout>
 
