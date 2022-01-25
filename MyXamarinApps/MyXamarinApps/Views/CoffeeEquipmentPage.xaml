@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyXamarinApps.CoffeeEquipmentPage"
-             xmlns:viewmodels="clr-namespace:MyXamarinApps.ViewModels">
+             xmlns:viewmodels="clr-namespace:MyXamarinApps.ViewModels"
+             x:Name="CoffeePage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
     <ContentPage.BindingContext>
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
@@ -25,6 +27,11 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Favorite" Command="{Binding Source={x:Reference CoffeePage},
+                                Path=BindingContext.FavoriteCommand}" CommandParameter="{Binding .}" />
+                            <MenuItem IsDestructive="True" Text="Delete" />
+                        </ViewCell.ContextActions>
                         <Grid Padding="10">
                             <Frame CornerRadius="20" HasShadow="True">
                                 <StackLayout Orientation="Horizontal">

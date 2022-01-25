@@ -16,6 +16,7 @@ namespace MyXamarinApps.ViewModels
         public ObservableRangeCollection<Coffee> Coffee { get; set; }
         public ObservableRangeCollection<Grouping<string,Coffee>> CoffeeGroup { get; set; }
         public AsyncCommand RefreshCommand { get; }
+        public AsyncCommand<Coffee> FavoriteCommand { get; set; }
 
         public CoffeeEquipmentViewModel()
         {
@@ -33,7 +34,16 @@ namespace MyXamarinApps.ViewModels
 
             CoffeeGroup.Add(new Grouping<string, Coffee>("Otten Coffee",Coffee.Where(c=>c.Roaster== "Otten Coffee")));
             CoffeeGroup.Add(new Grouping<string, Coffee>("Blue Bottle", Coffee.Where(c => c.Roaster == "Blue Bottle")));
+            
             RefreshCommand = new AsyncCommand(Refresh);
+            FavoriteCommand = new AsyncCommand<Coffee>(Favorite);
+        }
+
+        private async Task Favorite(Coffee coffee)
+        {
+            if (coffee == null)
+                return;
+            await Application.Current.MainPage.DisplayAlert("Favorite", $"{coffee.Roaster} - {coffee.Name}", "OK");
         }
 
         private async Task Refresh()
