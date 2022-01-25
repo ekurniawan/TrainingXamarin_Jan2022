@@ -17,7 +17,7 @@ namespace MyXamarinApps
         public CoffeeEquipmentPage()
         {
             InitializeComponent();
-            BindingContext = new CoffeeEquipmentViewModel();
+            //BindingContext = new CoffeeEquipmentViewModel();
         }
     }
 }
