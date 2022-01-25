@@ -23,5 +23,4 @@
             <Button x:Name="btnSetPreference" Text="Set Preference" Clicked="btnSetPreference_Clicked" />
         </StackLayout>
     </StackLayout>
-
 </ContentPage>

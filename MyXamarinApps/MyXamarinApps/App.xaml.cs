@@ -10,7 +10,7 @@ namespace MyXamarinApps
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new MyMasterPage());
+            MainPage = new CoffeeEquipmentPage();
         }
 
         protected override void OnStart()
