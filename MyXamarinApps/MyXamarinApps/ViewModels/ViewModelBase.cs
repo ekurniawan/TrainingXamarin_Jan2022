@@ -7,5 +7,6 @@ namespace MyXamarinApps.ViewModels
 {
     public class ViewModelBase : BaseViewModel
     {
+
     }
 }

@@ -7,13 +7,36 @@
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Label FontSize="Large" Text="{Binding CountDisplay}" />
-                <Button Text="Click Me" Command="{Binding IncreaseCount}" />
-                <Button Text="Refresh" Command="{Binding CallServerCommand}" />
-            </StackLayout>
-            <ListView ItemsSource="{Binding Coffee}" />
-        </StackLayout>
+        <ListView BackgroundColor="Transparent" 
+                  HasUnevenRows="True" SeparatorVisibility="None"
+                  ItemsSource="{Binding CoffeeGroup}"
+                  IsGroupingEnabled="True"
+                  GroupDisplayBinding="{Binding Key}">
+            <ListView.Header>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label HorizontalTextAlignment="Center" FontSize="Large" 
+                           Text="Coffee of the World" FontAttributes="Bold" />
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Frame CornerRadius="20" HasShadow="True">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="{Binding Image}" WidthRequest="66"/>
+                                    <StackLayout VerticalOptions="Center">
+                                        <Label FontSize="Large" Text="{Binding Name}"
+                                               VerticalOptions="Center"/>
+                                        <Label FontSize="Large" Text="{Binding Roaster}"
+                                               VerticalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
