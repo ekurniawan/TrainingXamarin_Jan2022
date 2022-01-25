@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyXamarinApps.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace MyXamarinApps
         {
             InitializeComponent();
 
-            MainPage = new CoffeeEquipmentPage();
+            MainPage = new CoffeeSQLitePage();
         }
 
         protected override void OnStart()
