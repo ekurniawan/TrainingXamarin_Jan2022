@@ -10,8 +10,12 @@
         <ListView BackgroundColor="Transparent" 
                   HasUnevenRows="True" SeparatorVisibility="None"
                   ItemsSource="{Binding CoffeeGroup}"
+                  IsPullToRefreshEnabled="True"
+                  IsRefreshing="{Binding IsBusy,Mode=OneWay}"
+                  RefreshCommand="{Binding RefreshCommand}"
                   IsGroupingEnabled="True"
-                  GroupDisplayBinding="{Binding Key}">
+                  GroupDisplayBinding="{Binding Key}"
+                  RefreshControlColor="Red">
             <ListView.Header>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label HorizontalTextAlignment="Center" FontSize="Large" 
