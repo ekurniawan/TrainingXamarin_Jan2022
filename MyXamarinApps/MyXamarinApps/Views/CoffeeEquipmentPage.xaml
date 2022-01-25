@@ -8,6 +8,11 @@
     <ContentPage.BindingContext>
         <viewmodels:CoffeeEquipmentViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <ListView BackgroundColor="Transparent" 
                   HasUnevenRows="True" SeparatorVisibility="None"
@@ -18,6 +23,11 @@
                   IsGroupingEnabled="True"
                   GroupDisplayBinding="{Binding Key}"
                   RefreshControlColor="Red">
+            <ListView.Behaviors>
+                <xct:EventToCommandBehavior EventName="ItemSelected"
+                    Command="{Binding SelectedCommand}" 
+                    EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>
+            </ListView.Behaviors>
             <ListView.Header>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Label HorizontalTextAlignment="Center" FontSize="Large" 
