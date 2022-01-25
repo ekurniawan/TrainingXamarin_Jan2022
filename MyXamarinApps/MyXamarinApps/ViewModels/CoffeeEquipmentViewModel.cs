@@ -17,7 +17,7 @@ namespace MyXamarinApps.ViewModels
         public ObservableRangeCollection<Grouping<string,Coffee>> CoffeeGroup { get; set; }
         public AsyncCommand RefreshCommand { get; }
         public AsyncCommand<Coffee> FavoriteCommand { get; set; }
-        public AsyncCommand<Coffee> SelectedCommand { get; set; }
+        public AsyncCommand<object> SelectedCommand { get; set; }
 
         public CoffeeEquipmentViewModel()
         {
@@ -38,10 +38,10 @@ namespace MyXamarinApps.ViewModels
             
             RefreshCommand = new AsyncCommand(Refresh);
             FavoriteCommand = new AsyncCommand<Coffee>(Favorite);
-            SelectedCommand = new AsyncCommand<Coffee>(SelectedCoffee);
+            SelectedCommand = new AsyncCommand<object>(SelectedCoffee);
         }
 
-        private async Task SelectedCoffee(Coffee arg)
+        private async Task SelectedCoffee(object arg)
         {
             var coffee = arg as Coffee;
             if (coffee == null) return;
