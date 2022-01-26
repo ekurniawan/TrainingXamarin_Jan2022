@@ -17,6 +17,7 @@ namespace MyXamarinApps.ViewModels
         public AsyncCommand RefreshCommand { get; set; }
         public AsyncCommand AddCommand { get; set; }
         public AsyncCommand<Coffee> SelectCommand { get; set; }
+        public AsyncCommand<Coffee> RemoveCommand { get; set; }
 
         public CoffeeSQLiteViewModel()
         {
@@ -26,6 +27,18 @@ namespace MyXamarinApps.ViewModels
             RefreshCommand = new AsyncCommand(Refresh);
             AddCommand = new AsyncCommand(Add);
             SelectCommand = new AsyncCommand<Coffee>(Selected);
+            RemoveCommand = new AsyncCommand<Coffee>(Remove);
+        }
+
+        private async Task Remove(Coffee coffee)
+        {
+            if (coffee == null)
+                return;
+
+            await CoffeeSQLiteDAL.RemoveCoffee(coffee.Id);
+            await App.Current.MainPage.DisplayAlert("Info", 
+                $"Coffee {coffee.Name} berhasil didelete", "OK");
+            await Refresh();
         }
 
         private async Task Selected(Coffee coffee)

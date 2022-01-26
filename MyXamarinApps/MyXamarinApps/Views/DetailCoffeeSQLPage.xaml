@@ -17,7 +17,7 @@
             <Entry Text="{Binding Name}" />
             <Label Text="Roaster :" FontSize="Medium" />
             <Entry Text="{Binding Roaster}" />
-            <Image HorizontalOptions="Center" Source="{Binding Image}" />
+            <Image HorizontalOptions="Center" WidthRequest="150" Source="{Binding Image}" />
             <StackLayout Orientation="Horizontal">
                 <Button Text="Edit" Command="{Binding EditCommand}" />
                 <Button Text="Done" Command="{Binding DoneCommand}" />
