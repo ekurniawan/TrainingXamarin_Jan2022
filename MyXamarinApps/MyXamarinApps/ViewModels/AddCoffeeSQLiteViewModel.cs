@@ -48,6 +48,7 @@ namespace MyXamarinApps.ViewModels
             {
                 await CoffeeSQLiteDAL.AddCoffee(newCoffee);
                 await Application.Current.MainPage.DisplayAlert("Info", $"Berhasil menambahkan {Name}", "OK");
+                await Shell.Current.GoToAsync("..");
             }
             catch (Exception ex)
             {

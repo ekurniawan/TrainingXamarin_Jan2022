@@ -8,40 +8,55 @@
     <ContentPage.BindingContext>
         <viewmodels:CoffeeSQLiteViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Behaviors>
         <xct:EventToCommandBehavior EventName="Appearing" Command="{Binding RefreshCommand}" />
     </ContentPage.Behaviors>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding Coffee}" HasUnevenRows="True" 
+        <StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Add Coffee" Command="{Binding AddCommand}" />
+            </StackLayout>
+            <ListView ItemsSource="{Binding Coffee}" HasUnevenRows="True" 
                   SeparatorVisibility="None" IsPullToRefreshEnabled="True"
                   IsRefreshing="{Binding IsBusy,Mode=OneWay}"
                   RefreshCommand="{Binding RefreshCommand}"
                   RefreshControlColor="Orange">
-            <ListView.Header>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label HorizontalTextAlignment="Center" FontSize="Large" 
+                <ListView.Behaviors>
+                    <xct:EventToCommandBehavior EventName="ItemSelected"
+                                                Command="{Binding SelectCommand}"
+                                                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}" />
+                </ListView.Behaviors>
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label HorizontalTextAlignment="Center" FontSize="Large" 
                            Text="Coffee of the World" FontAttributes="Bold" />
-                </StackLayout>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid Padding="10">
-                            <Frame CornerRadius="20" HasShadow="True">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image Source="{Binding Image}" WidthRequest="66"/>
-                                    <StackLayout VerticalOptions="Center">
-                                        <Label FontSize="Large" Text="{Binding Name}"
+                    </StackLayout>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Frame CornerRadius="20" HasShadow="True">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Image}" WidthRequest="66"/>
+                                        <StackLayout VerticalOptions="Center">
+                                            <Label FontSize="Large" Text="{Binding Name}"
                                                VerticalOptions="Center"/>
-                                        <Label FontSize="Large" Text="{Binding Roaster}"
+                                            <Label FontSize="Large" Text="{Binding Roaster}"
                                                VerticalOptions="Center" />
+                                        </StackLayout>
                                     </StackLayout>
-                                </StackLayout>
-                            </Frame>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
