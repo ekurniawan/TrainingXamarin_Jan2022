@@ -22,7 +22,21 @@ namespace BackendWebAPI.DAL
 
         public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"delete from Coffee where Id=@Id";
+                var param = new { Id = id };
+                try
+                {
+                    var result = conn.Execute(strSql, param);
+                    if (result != 1)
+                        throw new Exception("Gagal delete coffee");
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception(sqlEx.Message);
+                }
+            }
         }
 
         public IEnumerable<Coffee> GetAll()
@@ -155,7 +169,23 @@ namespace BackendWebAPI.DAL
 
         public void Update(int id, Coffee coffee)
         {
-            throw new System.NotImplementedException();
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                string strSql = @"update Coffee set Name=@Name,Roaster=@Roaster,Image=@Image 
+                                  where Id=@Id";
+                try
+                {
+                    var param = new { Name = coffee.Name, Roaster = coffee.Roaster,
+                       Image=coffee.Image, Id = id };
+                    var result = conn.Execute(strSql, param);
+                    if (result != 1)
+                        throw new Exception("Gagal update data Coffee");
+                }
+                catch (SqlException sqlEx)
+                {
+                    throw new Exception(sqlEx.Message);
+                }
+            }
         }
     }
 }

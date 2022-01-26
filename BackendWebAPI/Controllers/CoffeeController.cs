@@ -50,14 +50,32 @@ namespace BackendWebAPI.Controllers
 
         // PUT api/<CoffeeController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public ActionResult Put(int id, [FromBody] Coffee coffee)
         {
+            try
+            {
+                _coffee.Update(id, coffee);
+                return Ok($"Data coffee {coffee.Name} berhasil diedit");
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // DELETE api/<CoffeeController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(int id)
         {
+            try
+            {
+                _coffee.Delete(id);
+                return Ok($"Data berhasil didelete {id}");
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
