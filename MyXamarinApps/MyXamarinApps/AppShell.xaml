@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyXamarinApps.AppShell" Title="My Xamarin Apps">
+             x:Class="MyXamarinApps.AppShell" Title="My Xamarin Apps"
+             xmlns:local="clr-namespace:MyXamarinApps.Views">
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
@@ -63,4 +64,25 @@
             </Style>
         </ResourceDictionary>
     </Shell.Resources>
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout Padding="10">
+                <StackLayout Padding="5" Orientation="Horizontal">
+                    <Image Source="monyet1.png" HorizontalOptions="Start" WidthRequest="60" />
+                    <Label Text="Coffee Apps" FontSize="Medium" />
+                </StackLayout>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <FlyoutItem Title="Coffee Equipment" Icon="ic_add.png">
+        <ShellContent Route="CoffeeEquipmentPage" 
+                      ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Coffee Page" Icon="ic_add.png">
+        <ShellContent Route="CoffeeSQLitePage" 
+                      ContentTemplate="{DataTemplate local:CoffeeSQLitePage}" />
+    </FlyoutItem>
+   
 </Shell>

@@ -8,7 +8,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace MyXamarinApps
+namespace MyXamarinApps.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CoffeeEquipmentPage : ContentPage

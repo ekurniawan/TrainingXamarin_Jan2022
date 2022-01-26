@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyXamarinApps.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,10 @@ namespace MyXamarinApps
         public AppShell()
         {
             InitializeComponent();
+
+            Routing.RegisterRoute(nameof(CoffeeEquipmentPage), typeof(CoffeeEquipmentPage));
+            Routing.RegisterRoute(nameof(CoffeeSQLitePage),typeof(CoffeeSQLitePage));
+
         }
     }
 }
