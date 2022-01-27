@@ -16,7 +16,7 @@
         <StackLayout Padding="20">
             <Image HorizontalOptions="Center" Source="{Binding Image}" WidthRequest="120" />
             <Label Text="ID:" FontSize="Medium" />
-            <Entry Text="{Binding ID}" IsEnabled="False" />
+            <Entry Text="{Binding Id}" IsEnabled="False" />
             <Label Text="Coffee Name :" FontSize="Medium" />
             <Entry Text="{Binding Name}" />
             <Label Text="Coffee Roaster :" FontSize="Medium"/>

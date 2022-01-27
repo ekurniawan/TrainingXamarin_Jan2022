@@ -56,7 +56,7 @@ namespace MyXamarinApps.ViewModels
             int.TryParse(CoffeeId, out var result);
             var coffee = await coffeeService.GetById(result);
 
-            Id = coffee.Id;
+            Id = result;
             Name= coffee.Name;
             Roaster= coffee.Roaster;
             Image= coffee.Image;
