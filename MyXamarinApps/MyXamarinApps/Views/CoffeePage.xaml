@@ -4,7 +4,8 @@
              x:Class="MyXamarinApps.Views.CoffeePage"
              xmlns:viewmodels="clr-namespace:MyXamarinApps.ViewModels"
              Title="{Binding Title}"
-             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             x:Name="CoffeePageReference">
     <ContentPage.BindingContext>
         <viewmodels:CoffeeViewModel />
     </ContentPage.BindingContext>
@@ -37,6 +38,10 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Command="{Binding Source={x:Reference CoffeePageReference},Path=BindingContext.RemoveCommand}"
+                                      CommandParameter="{Binding .}"/>
+                        </ViewCell.ContextActions>
                         <Grid Padding="10">
                             <Frame CornerRadius="20" HasShadow="True">
                                 <StackLayout Orientation="Horizontal">

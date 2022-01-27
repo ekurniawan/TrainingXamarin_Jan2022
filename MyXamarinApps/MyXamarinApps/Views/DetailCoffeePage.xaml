@@ -25,6 +25,10 @@
                 <Button Text="Edit" Command="{Binding EditCommand}" />
                 <Button Text="Done" Command="{Binding DoneCommand}" />
             </StackLayout>
+            <Label Text="Lat :" FontSize="Medium" />
+            <Entry Text="{Binding Lat}" />
+            <Label Text="Lon :" FontSize="Medium" />
+            <Entry Text="{Binding Lon}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

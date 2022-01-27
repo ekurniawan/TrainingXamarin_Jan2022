@@ -60,6 +60,8 @@ namespace MyXamarinApps.ViewModels
             Name= coffee.Name;
             Roaster= coffee.Roaster;
             Image= coffee.Image;
+
+
         }
 
         private int id;
@@ -88,6 +90,20 @@ namespace MyXamarinApps.ViewModels
         {
             get { return image; }
             set { SetProperty(ref image, value); }
+        }
+
+        private double lat;
+        public double Lat
+        {
+            get { return lat; }
+            set { SetProperty(ref lat, value); }
+        }
+
+        private double lon;
+        public double Lon
+        {
+            get { return lon; }
+            set { SetProperty(ref lon, value); }
         }
 
 
