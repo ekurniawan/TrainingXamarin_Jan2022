@@ -77,6 +77,10 @@
     </Shell.FlyoutHeaderTemplate>
 
     <FlyoutItem Title="Coffee Equipment" Icon="ic_add.png">
+        <ShellContent Route="CoffeePage" 
+                      ContentTemplate="{DataTemplate local:CoffeePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Coffee Equipment" Icon="ic_add.png">
         <ShellContent Route="CoffeeEquipmentPage" 
                       ContentTemplate="{DataTemplate local:CoffeeEquipmentPage}" />
     </FlyoutItem>

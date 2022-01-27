@@ -21,6 +21,9 @@ namespace MyXamarinApps
             Routing.RegisterRoute(nameof(CoffeeSQLitePage),typeof(CoffeeSQLitePage));
             Routing.RegisterRoute(nameof(AddCoffeeSQLPage),typeof(AddCoffeeSQLPage));
             Routing.RegisterRoute(nameof(DetailCoffeeSQLPage), typeof(DetailCoffeeSQLPage));
+            Routing.RegisterRoute(nameof(CoffeePage),typeof(CoffeePage));
+            Routing.RegisterRoute(nameof(AddCoffeePage),typeof(AddCoffeePage));
+            Routing.RegisterRoute(nameof(DetailCoffeePage),typeof(DetailCoffeePage));
         }
     }
 }

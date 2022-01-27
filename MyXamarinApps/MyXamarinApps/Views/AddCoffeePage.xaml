@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyXamarinApps.Views.AddCoffeePage"
+             Title="{Binding Title}"
+             xmlns:viewmodels="clr-namespace:MyXamarinApps.ViewModels">
+    <ContentPage.BindingContext>
+        <viewmodels:AddCoffeeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Coffee Name :" FontSize="Medium" />
+            <Entry Text="{Binding Name}" />
+            <Label Text="Roaster :" FontSize="Medium" />
+            <Entry Text="{Binding Roaster}" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save" Padding="20,0"
+                        HorizontalOptions="Center" VerticalOptions="Center"
+                        Command="{Binding SaveCommand}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

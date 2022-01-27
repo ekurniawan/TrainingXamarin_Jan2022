@@ -1,4 +1,5 @@
-﻿using MyXamarinApps.Views;
+﻿using MyXamarinApps.Services;
+using MyXamarinApps.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -10,6 +11,9 @@ namespace MyXamarinApps
         public App()
         {
             InitializeComponent();
+
+            //dependency injection
+            DependencyService.Register<ICoffee, CoffeeService>();
 
             MainPage = new AppShell();
         }
