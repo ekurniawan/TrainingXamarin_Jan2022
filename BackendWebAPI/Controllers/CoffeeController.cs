@@ -77,5 +77,12 @@ namespace BackendWebAPI.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("GetCoffeeWithOrigin")]
+        public IEnumerable<ViewCoffeeWithOrigin> GetCoffeeWithOrigin()
+        {
+            var result = _coffee.GetCoffeeWithOrigin();
+            return result;
+        }
     }
 }

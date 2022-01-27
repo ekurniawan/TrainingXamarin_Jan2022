@@ -10,5 +10,6 @@ namespace BackendWebAPI.DAL
         void Insert(Coffee coffee);
         void Update(int id, Coffee coffee);
         void Delete(int id);
+        IEnumerable<ViewCoffeeWithOrigin> GetCoffeeWithOrigin();
     }
 }

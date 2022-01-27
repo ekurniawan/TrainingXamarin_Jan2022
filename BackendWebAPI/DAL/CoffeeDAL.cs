@@ -17,7 +17,7 @@ namespace BackendWebAPI.DAL
 
         private string GetConnStr()
         {
-            return _config.GetConnectionString("SQLServerConn");
+            return _config.GetConnectionString("AzureConn");
         }
 
         public void Delete(int id)
@@ -185,6 +185,17 @@ namespace BackendWebAPI.DAL
                 {
                     throw new Exception(sqlEx.Message);
                 }
+            }
+        }
+
+        public IEnumerable<ViewCoffeeWithOrigin> GetCoffeeWithOrigin()
+        {
+            using (SqlConnection conn = new SqlConnection(GetConnStr()))
+            {
+                var strSql = @"select * from ViewCoffeeWithOrigin 
+                             order by Name asc";
+                var results = conn.Query<ViewCoffeeWithOrigin>(strSql);
+                return results;
             }
         }
     }
